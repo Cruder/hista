@@ -3,4 +3,7 @@ project(hista_project)
 
 set(CMAKE_CXX_STANDARD 17)
 
+find_package(SFML 2.5 REQUIRED system window graphics network audio)
+
 add_executable(hista_project src/main.cpp)
+target_link_libraries(hista_project sfml-window sfml-graphics sfml-network sfml-audio)
