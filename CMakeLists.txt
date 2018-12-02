@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(SFML 2.5 REQUIRED system window graphics network audio)
 
-add_executable(hista_project src/main.cpp)
+add_executable(hista_project src/main.cpp src/key_binding.cpp src/key_binding.h src/player/actions.h src/game.cpp src/game.h)
 target_link_libraries(hista_project sfml-window sfml-graphics sfml-network sfml-audio)
