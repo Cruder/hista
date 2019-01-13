@@ -11,8 +11,10 @@ namespace hista {
         class container : public component {
         public:
             void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
         private:
             void select(unsigned int index);
+
         private:
             std::vector<std::shared_ptr<component>> _children;
             std::optional<unsigned int> _selected_child;

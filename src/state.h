@@ -25,8 +25,8 @@ namespace hista {
 
         public:
             component(states::stack& stack, context context);
-
             inline context export_context() const { return _context; }
+
         private:
             stack* _stack;
             context _context;

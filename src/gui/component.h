@@ -28,6 +28,7 @@ namespace hista {
             inline void deactivate() { _active = false; }
 
             virtual void handle_event(const sf::Event& event) = 0;
+
         private:
             bool _selected;
             bool _active;

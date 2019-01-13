@@ -2,7 +2,7 @@
 
 namespace hista {
     namespace gui {
-        // Set a font
+        // TODO: Set a font from holder
         label::label(const std::string &text) {
             _font = sf::Font();
             _font.loadFromFile("../assets/fonts/joystix.ttf");
