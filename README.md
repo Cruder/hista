@@ -1,7 +1,6 @@
 # Hista
 Donkey Kong game.
 # RTFM
-Note: Command lines executed with OhMyZsh to show the current path.
 ## Required tools
 - git
 - make
@@ -11,18 +10,20 @@ Note: Command lines executed with OhMyZsh to show the current path.
 ## Installation
 - Clone the repository
 ```shell
-➜  C++ git clone git@github.com:Cruder/hista.git
+git clone git@github.com:Cruder/hista.git
 ```
 - Create a cmake-build-debug folder
 ```shell
-➜  hista git:(master) mkdir cmake-build-debug
+cd hista
+mkdir cmake-build-debug
 ```
 ## Build
 ```shell
-➜  cmake-build-debug git:(master) cmake ..
-➜  cmake-build-debug git:(master) ✗ make
+cd bin
+cmake ..
+make
 ```
 ## Launch projet
 ```shell
-➜  cmake-build-debug git:(master) ✗ ./hista_project
+./hista_project
 ```
