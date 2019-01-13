@@ -19,7 +19,7 @@ mkdir cmake-build-debug
 ```
 ## Build
 ```shell
-cd bin
+cd cmake-build-debug
 cmake ..
 make
 ```
