@@ -10,6 +10,7 @@ namespace hista {
     class key_binding {
     public:
         typedef std::map<sf::Keyboard::Key, player::actions> mapper;
+
     public:
         static const mapper DIRECTIONAL_KEYS;
         static const mapper QWEASD_KEYS;
@@ -17,7 +18,6 @@ namespace hista {
 
     public:
         explicit key_binding(const mapper& keys = DIRECTIONAL_KEYS);
-
         std::vector<player::actions> actions();
 
     private:

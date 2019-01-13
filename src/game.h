@@ -17,7 +17,6 @@ namespace hista {
 
     private:
         static const sf::Time FRAMERATE;
-
         sf::RenderWindow _window;
     };
 }
