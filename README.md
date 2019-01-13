@@ -23,7 +23,7 @@ cd cmake-build-debug
 cmake ..
 make
 ```
-## Launch projet
+## Launch project
 ```shell
 ./hista_project
 ```
