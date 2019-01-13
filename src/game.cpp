@@ -1,10 +1,7 @@
-//
-// Created by necros on 02/12/18.
-//
-
 #include <SFML/Window/Event.hpp>
 #include "game.h"
 #include "key_binding.h"
+#include "gui/label.h"
 
 namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
@@ -52,6 +49,10 @@ namespace hista {
         _window.clear(sf::Color::Black);
 
         // Handle display here
+
+        auto label = hista::gui::label("Hello World");
+
+        _window.draw(label);
 
         _window.display();
     }
