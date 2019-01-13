@@ -1,7 +1,3 @@
-//
-// Created by necros on 02/12/18.
-//
-
 #ifndef HISTA_PROJECT_GAME_H
 #define HISTA_PROJECT_GAME_H
 
@@ -21,7 +17,6 @@ namespace hista {
 
     private:
         static const sf::Time FRAMERATE;
-
         sf::RenderWindow _window;
     };
 }

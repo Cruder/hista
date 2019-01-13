@@ -1,7 +1,3 @@
-//
-// Created by necros on 02/12/18.
-//
-
 #include <SFML/Window/Event.hpp>
 #include "game.h"
 #include "key_binding.h"

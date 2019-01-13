@@ -1,7 +1,3 @@
-//
-// Created by necros on 01/12/18.
-//
-
 #include "key_binding.h"
 
 namespace hista {
