@@ -15,6 +15,7 @@ namespace hista {
             void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
         private:
             sf::Text _text;
+            sf::Font _font;
         };
     }
 }

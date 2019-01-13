@@ -4,6 +4,9 @@ namespace hista {
     namespace gui {
         // Set a font
         label::label(const std::string &text) {
+            _font = sf::Font();
+            _font.loadFromFile("../assets/fonts/joystix.ttf");
+            _text = sf::Text(text, _font);
         }
 
         void label::handle_event(const sf::Event &event) {
