@@ -1,7 +1,3 @@
-//
-// Created by necros on 01/12/18.
-//
-
 #ifndef HISTA_PROJECT_KEY_BINDING_H
 #define HISTA_PROJECT_KEY_BINDING_H
 

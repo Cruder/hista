@@ -1,7 +1,3 @@
-//
-// Created by necros on 28/12/18.
-//
-
 #ifndef HISTA_PROJECT_BUTTON_H
 #define HISTA_PROJECT_BUTTON_H
 

@@ -1,7 +1,3 @@
-//
-// Created by necros on 28/12/18.
-//
-
 namespace hista {
     namespace resource {
         template <typename Resource, typename Identifier>
