@@ -19,11 +19,11 @@ mkdir cmake-build-debug
 ```
 ## Build
 ```shell
-cd bin
+cd cmake-build-debug
 cmake ..
 make
 ```
-## Launch projet
+## Launch project
 ```shell
 ./hista_project
 ```
