@@ -8,9 +8,10 @@ namespace hista {
             context(unsigned int x, unsigned int y) : _x { x }, _y { y } {
             }
 
-        private:
-            int _x;
-            int _y;
+        public:
+            unsigned int _x;
+            unsigned int _y;
+        };
     }
 }
 

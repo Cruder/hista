@@ -1,20 +1,30 @@
 #ifndef HISTA_PROJECT_DISPLAYER_H
 #define HISTA_PROJECT_DISPLAYER_H
 
-#include "player/context.h"
+#include <SFML/System/NonCopyable.hpp>
+#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
+#include "context.h"
 
 namespace hista {
     namespace player {
-        class displayer {
+        class displayer : public sf::Drawable, public sf::Transformable, private sf::NonCopyable {
         public:
-            displayer(player::context context) : _context { context } {
-            }
+            displayer(player::context context);
 
         public:
-            void draw();
+            void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
         private:
-            player::context _context;
+            context _context;
+            sf::Sprite _sprite;
+            sf::Texture _texture;
+        };
     }
 }
 
