@@ -2,6 +2,8 @@
 #include "game.h"
 #include "key_binding.h"
 #include "gui/label.h"
+#include "player/displayer.h"
+#include "player/context.h"
 
 namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
@@ -48,11 +50,12 @@ namespace hista {
     void game::render() {
         _window.clear(sf::Color::Black);
 
-        // Handle display here
-
         auto label = hista::gui::label("Hello World");
+        auto ctx = hista::player::context(400u, 400u);
+        auto player = hista::player::displayer(ctx);
 
         _window.draw(label);
+        _window.draw(player);
 
         _window.display();
     }
