@@ -3,9 +3,9 @@
 
 namespace hista {
     namespace ennemi {
-        class context_enemy {
+        class context {
         public:
-            context_enemy(unsigned int x, unsigned int y) : _x { x }, _y { y } {
+            context(unsigned int x, unsigned int y) : _x { x }, _y { y } {
             }
 
         public:
@@ -15,4 +15,4 @@ namespace hista {
     }
 }
 
-#endif //HISTA_PROJECT_ENNEMI_CONTEXT_H
+#endif //HISTA_PROJECT_CONTEXT_ENEMY_H

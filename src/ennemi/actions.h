@@ -3,7 +3,7 @@
 
 namespace hista {
     namespace ennemi {
-        enum class actions_enemy {
+        enum class actions {
             ROTATE,
             ATTACK,
             KIDNAP
@@ -11,4 +11,4 @@ namespace hista {
     }
 }
 
-#endif //HISTA_PROJECT_ACTIONS_H
+#endif //HISTA_PROJECT_ACTIONS_ENEMY_H

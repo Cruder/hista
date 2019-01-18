@@ -4,8 +4,8 @@
 #include "gui/label.h"
 #include "player/displayer.h"
 #include "player/context.h"
-#include "ennemi/displayer_enemy.h"
-#include "ennemi/context_enemy.h"
+#include "ennemi/displayer.h"
+#include "ennemi/context.h"
 
 namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
@@ -57,8 +57,8 @@ namespace hista {
         auto label = hista::gui::label("Hello World");
         auto ctx = hista::player::context(400u, 400u);
         auto player = hista::player::displayer(ctx);
-        auto ctx_ennemi = hista::ennemi::context_enemy(200u, 400u);
-        auto ennemi = hista::ennemi::displayer_enemy(ctx_ennemi,_texture);
+        auto ctx_ennemi = hista::ennemi::context(200u, 400u);
+        auto ennemi = hista::ennemi::displayer(ctx_ennemi, _texture);
 
         _window.draw(label);
         _window.draw(player);
