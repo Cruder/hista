@@ -4,6 +4,8 @@
 #include "gui/label.h"
 #include "player/displayer.h"
 #include "player/context.h"
+#include "ennemi/displayer.h"
+#include "ennemi/context.h"
 
 namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
@@ -12,11 +14,13 @@ namespace hista {
     : _window { sf::VideoMode(width, height), name } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
+        _texture.loadFromFile("../assets/images/textures.png");
     }
 
     int game::run() {
         sf::Clock clock {};
         sf::Time accumulator { sf::Time::Zero };
+
 
         while(_window.isOpen()) {
             sf::Time delta_time = clock.restart();
@@ -53,9 +57,12 @@ namespace hista {
         auto label = hista::gui::label("Hello World");
         auto ctx = hista::player::context(400u, 400u);
         auto player = hista::player::displayer(ctx);
+        auto ctx_ennemi = hista::ennemi::context(200u, 400u);
+        auto ennemi = hista::ennemi::displayer(ctx_ennemi, _texture);
 
         _window.draw(label);
         _window.draw(player);
+        _window.draw(ennemi);
 
         _window.display();
     }
