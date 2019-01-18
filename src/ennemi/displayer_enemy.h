@@ -15,7 +15,7 @@
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
-#include "context.h"
+#include "context_enemy.h"
 
 namespace hista {
     namespace ennemi {

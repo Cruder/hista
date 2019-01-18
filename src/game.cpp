@@ -14,7 +14,7 @@ namespace hista {
     : _window { sf::VideoMode(width, height), name } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
-        _texture.loadFromFile("../assets/images/marios.png");
+        _texture.loadFromFile("../assets/images/textures.png");
     }
 
     int game::run() {
