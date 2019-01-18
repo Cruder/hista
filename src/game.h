@@ -3,6 +3,7 @@
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Texture.hpp>
 
 namespace hista {
     class game final {
@@ -17,6 +18,7 @@ namespace hista {
 
     private:
         static const sf::Time FRAMERATE;
+        sf::Texture _texture;
         sf::RenderWindow _window;
     };
 }
