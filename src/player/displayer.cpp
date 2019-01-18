@@ -2,8 +2,7 @@
 
 namespace hista {
     namespace player {
-        displayer::displayer(player::context context) : _context { context } {
-            _texture.loadFromFile("../assets/images/textures.png");
+        displayer::displayer(player::context context, const sf::Texture &texture) : _context { context }, _texture { texture } {
             _sprite.setTexture(_texture);
             _sprite.setTextureRect(sf::IntRect(66, 24, 12, 16));
             _sprite.setScale(2, 2);
