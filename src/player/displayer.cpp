@@ -5,7 +5,8 @@ namespace hista {
         displayer::displayer(player::context context) : _context { context } {
             _texture.loadFromFile("../assets/images/textures.png");
             _sprite.setTexture(_texture);
-            _sprite.setTextureRect(sf::IntRect(132, 48, 24, 32));
+            _sprite.setTextureRect(sf::IntRect(66, 24, 12, 16));
+            _sprite.setScale(2, 2);
             setPosition(context._x, context._y);
         }
 
