@@ -58,11 +58,11 @@ namespace hista {
 
         auto label = hista::gui::label("Hello World");
 
-        auto ctx = hista::player::context(400u, 400u);
-        auto player = hista::player::displayer(ctx);
+        auto player_ctx = hista::player::context(400u, 400u);
+        auto player = hista::player::displayer(player_ctx, _texture);
 
-        auto ctx_ennemi = hista::ennemi::context(200u, 400u);
-        auto ennemi = hista::ennemi::displayer(ctx_ennemi, _texture);
+        auto ennemi_ctx = hista::ennemi::context(200u, 400u);
+        auto ennemi = hista::ennemi::displayer(ennemi_ctx, _texture);
 
         auto platform_ctx = hista::platforms::context(400u, 200u);
         auto platform = hista::platforms::displayer(platform_ctx, _texture);
