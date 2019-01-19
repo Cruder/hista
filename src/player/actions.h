@@ -1,5 +1,5 @@
-#ifndef HISTA_PROJECT_ACTIONS_H
-#define HISTA_PROJECT_ACTIONS_H
+#ifndef HISTA_PROJECT_PLAYER_ACTIONS_H
+#define HISTA_PROJECT_PLAYER_ACTIONS_H
 
 namespace hista {
     namespace player {
@@ -12,4 +12,4 @@ namespace hista {
     }
 }
 
-#endif //HISTA_PROJECT_ACTIONS_H
+#endif //HISTA_PROJECT_PLAYER_ACTIONS_H

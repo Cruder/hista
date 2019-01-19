@@ -1,5 +1,5 @@
-#ifndef HISTA_PROJECT_DISPLAYER_H
-#define HISTA_PROJECT_DISPLAYER_H
+#ifndef HISTA_PROJECT_PLAYER_DISPLAYER_H
+#define HISTA_PROJECT_PLAYER_DISPLAYER_H
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
@@ -28,4 +28,4 @@ namespace hista {
     }
 }
 
-#endif //HISTA_PROJECT_DISPLAYER_H
+#endif //HISTA_PROJECT_PLAYER_DISPLAYER_H
