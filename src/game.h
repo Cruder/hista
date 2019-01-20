@@ -4,6 +4,7 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include "player/displayer.h"
 #include "level.h"
 
 namespace hista {
@@ -23,6 +24,7 @@ namespace hista {
         sf::RenderWindow _window;
 
         std::unique_ptr<level> _level;
+        player::displayer _mario;
     };
 }
 

@@ -1,4 +1,5 @@
 #include <SFML/Window/Event.hpp>
+#include <iostream>
 #include "game.h"
 #include "key_binding.h"
 #include "gui/label.h"
@@ -12,7 +13,8 @@ namespace hista {
 
     game::game(unsigned int width, unsigned int height, const std::string& name)
     : _window { sf::VideoMode(width, height), name },
-      _level { make_level("../assets/meta/level/1.hista") } {
+      _level { make_level("../assets/meta/level/1.hista") },
+      _mario { player::context(0, 0), sf::Texture() } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
         _texture.loadFromFile("../assets/images/textures.png");
@@ -46,7 +48,21 @@ namespace hista {
         while (_window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) { _window.close(); }
             for(const auto &action : binding.actions()) {
-                // Handle actions here
+                std::cout << (int)action <<std::endl;
+                switch (action){
+                    case player::actions::MOVE_LEFT:
+                        std::cout << "LEFT\n";
+                        _mario.left();
+                        break;
+                    case player::actions::MOVE_RIGHT :
+                        std::cout << "RIGHT\n";
+                        _mario.right();
+                        break;
+
+
+//                std::cout << (int)action <<std::endl;
+
+                }
             }
         }
     }
@@ -64,7 +80,7 @@ namespace hista {
         auto ennemi = hista::ennemi::displayer(ennemi_ctx, _texture);
 
         _window.draw(label);
-        _window.draw(player);
+        _window.draw(_mario);
         _window.draw(ennemi);
 
         _window.draw(*_level);
