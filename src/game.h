@@ -4,6 +4,7 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include "player/displayer.h"
 
 namespace hista {
     class game final {
@@ -20,6 +21,7 @@ namespace hista {
         static const sf::Time FRAMERATE;
         sf::Texture _texture;
         sf::RenderWindow _window;
+        player::displayer _mario;
     };
 }
 

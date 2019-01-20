@@ -14,5 +14,17 @@ namespace hista {
             states.transform *= getTransform();
             target.draw(_sprite, states);
         }
+
+        void displayer::left() {
+            if(_context._x>0)
+                _context._x--;
+            setPosition(_context._x,_context._y);
+        }
+
+        void displayer::right() {
+//            if(_context._x < 500)
+              _context._x++;
+            setPosition(_context._x,_context._y);
+        }
     }
 }
