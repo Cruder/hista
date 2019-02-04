@@ -25,5 +25,13 @@ namespace hista {
               _context._x++;
             setPosition(_context._x,_context._y);
         }
+
+        void displayer::down() {
+
+        }
+
+        void displayer::up() {
+
+        }
     }
 }

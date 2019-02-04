@@ -23,7 +23,11 @@ namespace hista {
 
             void left() override;
 
-            void right() override;
+        void down() override;
+
+        void up() override;
+
+        void right() override;
 
     private:
             context _context;

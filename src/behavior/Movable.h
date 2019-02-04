@@ -5,9 +5,9 @@ namespace hista {
     class Movable {
     public:
         virtual void left() = 0;
-
+        virtual void down() = 0;
         virtual void right() = 0;
-
+        virtual void up() = 0;
     };
 }
 

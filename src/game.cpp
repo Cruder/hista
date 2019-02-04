@@ -14,7 +14,9 @@ namespace hista {
     game::game(unsigned int width, unsigned int height, const std::string& name)
     : _window { sf::VideoMode(width, height), name },
       _level { make_level("../assets/meta/level/1.hista") },
-      _mario { player::context(0, 0), sf::Texture() } {
+      _map {},
+      _mario { hista::player::context(400u, 400u), sf::Texture() }
+    {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
         _texture.loadFromFile("../assets/images/textures.png");
@@ -45,18 +47,21 @@ namespace hista {
         sf::Event event {};
         hista::key_binding binding {};
 
+
+
         while (_window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) { _window.close(); }
             for(const auto &action : binding.actions()) {
-                std::cout << (int)action <<std::endl;
+//                std::cout << (int)action <<std::endl;
                 switch (action){
                     case player::actions::MOVE_LEFT:
                         std::cout << "LEFT\n";
-                        _mario.left();
+                        if(_map["LEFT"] <= 0) _map["LEFT"] = 1.f;
+
                         break;
                     case player::actions::MOVE_RIGHT :
                         std::cout << "RIGHT\n";
-                        _mario.right();
+                        if(_map["RIGHT"] <= 0) _map["RIGHT"] = 1.f;
                         break;
 
 
@@ -64,10 +69,21 @@ namespace hista {
 
                 }
             }
+
         }
     }
 
     void game::update(sf::Time delta_time) {
+        if(_map["LEFT"] > 0){
+            _mario.left();
+            _map["LEFT"] -= FRAMERATE.asSeconds()*3;
+//            std::cout<<"LOCK: "<< _map["LEFT"] << std::endl;
+        }
+        if(_map["RIGHT"] > 0){
+            _mario.right();
+            _map["RIGHT"] -= FRAMERATE.asSeconds()*3;
+//            std::cout<<"LOCK: "<< _map["RIGHT"] << std::endl;
+        }
     }
 
     void game::render() {

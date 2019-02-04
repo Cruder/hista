@@ -1,6 +1,7 @@
 #ifndef HISTA_PROJECT_GAME_H
 #define HISTA_PROJECT_GAME_H
 
+#include <map>
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
@@ -19,6 +20,7 @@ namespace hista {
         void render();
 
     private:
+        std::map<std::string, float> _map;
         static const sf::Time FRAMERATE;
         sf::Texture _texture;
         sf::RenderWindow _window;
