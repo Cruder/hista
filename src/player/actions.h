@@ -6,6 +6,8 @@ namespace hista {
         enum class actions {
             MOVE_LEFT,
             MOVE_RIGHT,
+            CLIMB,
+            MOVE_DOWN,
             JUMP,
             COUNT
         };

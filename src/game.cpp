@@ -12,7 +12,7 @@ namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
 
     game::game(unsigned int width, unsigned int height, const std::string& name)
-    : _window { sf::VideoMode(width, height), name },
+    : _window { sf::VideoMode(width, height), name }, _map{},
       _mario { hista::player::displayer(hista::player::context(400u, 400u)) }
     {
         _window.setFramerateLimit(60);
@@ -45,18 +45,21 @@ namespace hista {
         sf::Event event {};
         hista::key_binding binding {};
 
+
+
         while (_window.pollEvent(event)) {
             if (event.type == sf::Event::Closed) { _window.close(); }
             for(const auto &action : binding.actions()) {
-                std::cout << (int)action <<std::endl;
+//                std::cout << (int)action <<std::endl;
                 switch (action){
                     case player::actions::MOVE_LEFT:
                         std::cout << "LEFT\n";
-                        _mario.left();
+                        if(_map["LEFT"] <= 0) _map["LEFT"] = 1.f;
+
                         break;
                     case player::actions::MOVE_RIGHT :
                         std::cout << "RIGHT\n";
-                        _mario.right();
+                        if(_map["RIGHT"] <= 0) _map["RIGHT"] = 1.f;
                         break;
 
 
@@ -64,10 +67,21 @@ namespace hista {
 
                 }
             }
+
         }
     }
 
     void game::update(sf::Time delta_time) {
+        if(_map["LEFT"] > 0){
+            _mario.left();
+            _map["LEFT"] -= FRAMERATE.asSeconds()*3;
+//            std::cout<<"LOCK: "<< _map["LEFT"] << std::endl;
+        }
+        if(_map["RIGHT"] > 0){
+            _mario.right();
+            _map["RIGHT"] -= FRAMERATE.asSeconds()*3;
+//            std::cout<<"LOCK: "<< _map["RIGHT"] << std::endl;
+        }
     }
 
     void game::render() {
