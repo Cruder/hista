@@ -8,6 +8,7 @@
 #include "ennemi/context.h"
 #include "platforms/displayer.h"
 #include "platforms/context.h"
+// #include "tilemap.h"
 
 namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
@@ -63,6 +64,8 @@ namespace hista {
 
         auto ctx_ennemi = hista::ennemi::context(200u, 400u);
         auto ennemi = hista::ennemi::displayer(ctx_ennemi, _texture);
+
+        // auto tilemap = hista::tilemap(_texture);
 
         auto platform_ctx = hista::platforms::context(400u, 200u);
         auto platform = hista::platforms::displayer(platform_ctx, _texture);
