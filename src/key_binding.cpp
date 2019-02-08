@@ -4,7 +4,9 @@ namespace hista {
     const key_binding::mapper key_binding::DIRECTIONAL_KEYS = {
             { sf::Keyboard::Left, player::actions::MOVE_LEFT },
             { sf::Keyboard::Right, player::actions::MOVE_RIGHT },
-            { sf::Keyboard::Up, player::actions::JUMP },
+            { sf::Keyboard::Down, player::actions::MOVE_DOWN},
+            { sf::Keyboard::Up, player::actions::CLIMB},
+//            { sf::Keyboard::Up, player::actions::JUMP},
     };
 
     const key_binding::mapper key_binding::QWEASD_KEYS {

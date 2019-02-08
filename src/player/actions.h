@@ -9,6 +9,7 @@ namespace hista {
             CLIMB,
             MOVE_DOWN,
             JUMP,
+            NONE,
             COUNT
         };
     }

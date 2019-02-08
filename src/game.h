@@ -4,8 +4,8 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
-#include "player/displayer.h"
-#include <map>
+#include "player/player.h"
+
 
 namespace hista {
     class game final {
@@ -19,11 +19,10 @@ namespace hista {
         void render();
 
     private:
-        std::map<std::string, float> _map;
         static const sf::Time FRAMERATE;
         sf::Texture _texture;
         sf::RenderWindow _window;
-        player::displayer _mario;
+        player::player _mario;
     };
 }
 
