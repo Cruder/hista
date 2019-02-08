@@ -6,6 +6,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include "player/displayer.h"
+#include "player/player.h"
 #include "level.h"
 
 namespace hista {
@@ -20,13 +21,12 @@ namespace hista {
         void render();
 
     private:
-        std::map<std::string, float> _map;
         static const sf::Time FRAMERATE;
         sf::Texture _texture;
         sf::RenderWindow _window;
 
         std::unique_ptr<level> _level;
-        player::displayer _mario;
+        player::player _mario;
     };
 }
 
