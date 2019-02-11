@@ -21,6 +21,7 @@ namespace hista{
             context _position;
             playerUpdater _updater;
             displayer _displayer;
+            actions _currentAction;
         };
     }
 }
