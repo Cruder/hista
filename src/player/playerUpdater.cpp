@@ -10,7 +10,7 @@ namespace hista {
             _playerActions[hista::player::actions::MOVE_DOWN]=0;
         }
 
-        void playerUpdater::update(context &position, float delta_time) {
+        actions playerUpdater::update(context &position, float delta_time) {
 
             if(_playerActions[actions::MOVE_LEFT] > 0){
                 position._x--;
@@ -29,6 +29,7 @@ namespace hista {
                 _playerActions[actions::MOVE_DOWN] -= delta_time;
             }
             resetAction();
+            return _currentAction;
         }
 
         void playerUpdater::resetAction() {
@@ -45,7 +46,6 @@ namespace hista {
                 _currentAction=action;
                 _playerActions[action]=timeInit;
             }
-
         }
     }
 }

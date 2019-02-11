@@ -12,6 +12,8 @@
 #include "context.h"
 #include "../behavior/Movable.h"
 #include "playerUpdater.h"
+#include "actions.h"
+#include <iostream>
 
 namespace hista {
     namespace player {
@@ -21,10 +23,31 @@ namespace hista {
 
         public:
             void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-            void refreshPosition(const context &position) { setPosition(position._x,position._y); }
+            void refreshPosition(const context &position, actions action) {
+                setPosition(position._x,position._y);
+                switch (action){
+                    case actions::MOVE_LEFT:
+                        setScale(2,2);
+                        std::cout << "left" << std::endl;
+                        _animationID = static_cast<unsigned short>((_animationID + 1) % _animations[action].size());
+                        break;
+                    case actions::MOVE_RIGHT:
+                        setScale(-2,2);
+                        _animationID = static_cast<unsigned short>((_animationID + 1) % _animations[action].size());
+                        std::cout << "right" << std::endl;
+                        break;
+                    default:
+                        _animationID=0;
+                }
+                _sprite = &_animations[action][_animationID];
+            }
     private:
-            sf::Sprite _sprite;
+            sf::Sprite* _sprite;
             sf::Texture _texture;
+            std::map<actions,std::vector<sf::Sprite>> _animations;
+            unsigned short _animationID;
+
+
         };
     }
 }
