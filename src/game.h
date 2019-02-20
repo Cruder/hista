@@ -4,6 +4,7 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include "level.h"
 
 namespace hista {
     class game final {
@@ -20,6 +21,8 @@ namespace hista {
         static const sf::Time FRAMERATE;
         sf::Texture _texture;
         sf::RenderWindow _window;
+
+        std::unique_ptr<level> _level;
     };
 }
 
