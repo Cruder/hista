@@ -17,13 +17,22 @@ namespace hista {
     }
 
     void tilemap::layer::draw(sf::RenderTarget &target, sf::RenderStates& states, hista::tileset &tileset) const {
+        std::cerr << "Draw tilemap layer" << std::endl;
+        int acc_y = 0;
         for(const auto& line : labels) {
+            int acc_x = 0;
             for(const auto& label : line) {
-                auto sprite = tileset.get(label);
-                target.draw(sprite, states);
-                states.transform.translate(sf::Vector2f(16.0f, 16.0f));
+                acc_x += 16;
+                if(label != "0") {
+                    auto sprite = tileset.get(label);
+                    target.draw(sprite, states);
+                }
+                states.transform.translate(sf::Vector2f(16.0f, 0.0f));
             }
+            acc_y += 16;
+            states.transform.translate(-acc_x, 16.0f);
         }
+        states.transform.translate(0, -acc_y);
     }
 
     tilemap::layer internal__make_layer(std::ifstream& file, unsigned int x, unsigned int y) {

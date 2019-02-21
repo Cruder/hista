@@ -10,12 +10,17 @@ namespace hista {
             std::unique_ptr<resource::texture::holder>&& holder,
             std::unique_ptr<std::map<std::string, std::shared_ptr<item>>>&& items,
             unsigned int size_x,
-            unsigned int size_y)
+            unsigned int size_y,
+            double coef_x,
+            double coef_y)
             : _holder { std::move(holder) },
               _items { std::move(items) },
               tile_size_x { size_x },
               tile_size_y { size_y },
+              coef_x { coef_x },
+              coef_y { coef_y },
               sprite {} {
+        std::cerr << "Coef " << coef_x << ' ' << coef_y << std::endl;
         sprite.setTexture(resource());
     }
 
@@ -24,12 +29,15 @@ namespace hista {
     }
 
     sf::Sprite &tileset::get(const std::string &identifier) {
-        sprite.setTextureRect(sf::IntRect(0, 0, 16, 16));
-
+        std::cerr << "Tileset get " << identifier << std::endl;
+        auto item = _items->find(identifier)->second;
+        std::cerr << "Tileset get " << item->_x << '+' << item->_y << std::endl;
+        sprite.setTextureRect(sf::IntRect(item->_x, item->_y, tile_size_x, tile_size_y));
+//        sprite.scale(coef_x, coef_y);
         return sprite;
     }
 
-    std::unique_ptr<tileset> make_tileset(const std::string& filename) {
+    std::unique_ptr<tileset> make_tileset(const std::string& filename, unsigned int size_x, unsigned int size_y) {
         auto file = std::ifstream(filename);
         std::string image_name;
         std::getline(file, image_name);
@@ -47,6 +55,10 @@ namespace hista {
             file >> id >> rel_x >> rel_y;
             items->insert(std::make_pair(id, std::make_shared<hista::tileset::item>(rel_x, rel_y)));
         }
-        return std::make_unique<tileset>(std::move(holder), std::move(items), x, y);
+
+        double coef_x = size_x * 1.0 / x * 1.0;
+        double coef_y = size_y * 1.0 / y * 1.0;
+
+        return std::make_unique<tileset>(std::move(holder), std::move(items), x, y, coef_x, coef_y);
     }
 }

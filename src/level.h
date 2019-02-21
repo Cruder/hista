@@ -12,9 +12,6 @@ namespace hista {
     private:
         std::unique_ptr<tilemap> _tilemap;
         std::unique_ptr<tileset> _tileset;
-
-        unsigned int tile_size_x;
-        unsigned int tile_size_y;
     };
 
     std::unique_ptr<level> make_level(const std::string& filename);

@@ -6,6 +6,7 @@
 namespace hista {
     void level::draw(sf::RenderTarget &target, sf::RenderStates states) const {
         states.transform *= getTransform();
+        states.transform.scale(2.0f, 2.0f);
 
         _tilemap->draw(target, states, *_tileset);
     }
@@ -16,13 +17,16 @@ namespace hista {
 
     std::unique_ptr<level> make_level(const std::string& filename) {
         auto file = std::ifstream(filename);
+        unsigned int x, y;
+        file >> x >> y;
         std::string file_content;
         std::getline(file, file_content);
-        std::cerr << file_content << std::endl;
+        std::getline(file, file_content);
+        std::cerr << "Tilemap => " << file_content << std::endl;
         auto tilemap = make_tilemap(file_content);
         std::getline(file, file_content);
-        std::cerr << file_content << std::endl;
-        auto tileset = make_tileset(file_content);
+        std::cerr << "Tileset => " << file_content << std::endl;
+        auto tileset = make_tileset(file_content, x, y);
         return std::make_unique<level>(std::move(tilemap), std::move(tileset));
     }
 }
