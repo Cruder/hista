@@ -53,6 +53,7 @@ namespace hista {
             std::string id;
             unsigned int rel_x, rel_y;
             file >> id >> rel_x >> rel_y;
+            std::cerr << "Tileset insert " << id << std::endl;
             items->insert(std::make_pair(id, std::make_shared<hista::tileset::item>(rel_x, rel_y)));
         }
 
