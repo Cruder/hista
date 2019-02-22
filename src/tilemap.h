@@ -1,7 +1,3 @@
-//
-// Created by necros on 20/02/19.
-//
-
 #ifndef HISTA_PROJECT_TILEMAP_H
 #define HISTA_PROJECT_TILEMAP_H
 

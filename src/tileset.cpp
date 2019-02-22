@@ -1,7 +1,3 @@
-//
-// Created by necros on 20/02/19.
-//
-
 #include <iostream>
 #include "tileset.h"
 
