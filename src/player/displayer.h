@@ -11,7 +11,7 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include "context.h"
 #include "../behavior/Movable.h"
-#include "playerUpdater.h"
+#include "player_updater.h"
 
 namespace hista {
     namespace player {

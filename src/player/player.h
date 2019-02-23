@@ -3,7 +3,7 @@
 
 #include "context.h"
 #include "../behavior/Movable.h"
-#include "playerUpdater.h"
+#include "player_updater.h"
 #include "actions.h"
 
 namespace hista{
@@ -24,7 +24,5 @@ namespace hista{
         };
     }
 }
-
-
 
 #endif //HISTA_PROJECT_PLAYER_H
