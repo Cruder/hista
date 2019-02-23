@@ -10,7 +10,7 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 #include "context.h"
-#include "../behavior/Movable.h"
+#include "../behavior/movable.h"
 #include "player_updater.h"
 
 namespace hista {

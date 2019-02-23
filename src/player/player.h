@@ -2,7 +2,7 @@
 #define HISTA_PROJECT_PLAYER_H
 
 #include "context.h"
-#include "../behavior/Movable.h"
+#include "../behavior/movable.h"
 #include "player_updater.h"
 #include "actions.h"
 
