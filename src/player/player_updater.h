@@ -12,7 +12,7 @@ namespace hista {
             playerUpdater();
         public:
             void startMovement(const hista::player::actions &action, float timeInit);
-            void update(context& position, float delta_time);
+            actions update(context& position, float delta_time);
 
         private:
             void resetAction();

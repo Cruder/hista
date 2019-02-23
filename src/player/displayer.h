@@ -1,6 +1,7 @@
 #ifndef HISTA_PROJECT_DISPLAYER_H
 #define HISTA_PROJECT_DISPLAYER_H
 
+#include <iostream>
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
@@ -12,6 +13,7 @@
 #include "context.h"
 #include "../behavior/movable.h"
 #include "player_updater.h"
+#include "actions.h"
 
 namespace hista {
     namespace player {
@@ -21,10 +23,16 @@ namespace hista {
 
         public:
             void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-            void refreshPosition(const context &position) { setPosition(position._x,position._y); }
+            void refreshPosition(const context &position, actions action) ;
     private:
-            sf::Sprite _sprite;
+            sf::Sprite* _sprite;
             sf::Texture _texture;
+            std::map<actions,std::vector<sf::Sprite>> _animations;
+            unsigned short _animationID;
+            bool _isDirectionLeft;
+            double animationDuration;
+
+
         };
     }
 }
