@@ -2,7 +2,7 @@
 #define HISTA_PROJECT_MOVABLE_H
 
 namespace hista {
-    class Movable {
+    class movable {
     public:
         virtual void left() = 0;
         virtual void down() = 0;
