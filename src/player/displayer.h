@@ -10,18 +10,19 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
 #include "context.h"
+#include "../behavior/Movable.h"
+#include "player_updater.h"
 
 namespace hista {
     namespace player {
-        class displayer : public sf::Drawable, public sf::Transformable, private sf::NonCopyable {
+    class displayer : public sf::Transformable, private sf::NonCopyable  {
         public:
-            displayer(player::context context, const sf::Texture &texture);
+            displayer();
 
         public:
-            void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-
-        private:
-            context _context;
+            void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+            void refreshPosition(const context &position) { setPosition(position._x,position._y); }
+    private:
             sf::Sprite _sprite;
             sf::Texture _texture;
         };
