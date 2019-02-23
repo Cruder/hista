@@ -11,10 +11,13 @@ namespace hista {
     const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
 
     game::game(unsigned int width, unsigned int height, const std::string& name)
-    : _window { sf::VideoMode(width, height), name } {
+    : _window { sf::VideoMode(width, height), name },
+      _level { make_level("../assets/meta/level/1.hista") } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
         _texture.loadFromFile("../assets/images/textures.png");
+
+        _level->setPosition(150.0f, 150.0f);
     }
 
     int game::run() {
@@ -63,6 +66,8 @@ namespace hista {
         _window.draw(label);
         _window.draw(player);
         _window.draw(ennemi);
+
+        _window.draw(*_level);
 
         _window.display();
     }

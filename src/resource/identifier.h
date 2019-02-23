@@ -15,7 +15,8 @@ namespace hista {
 
         namespace texture {
             enum class ID {
-                Buttons
+                Buttons,
+                Tileset
             };
 
             typedef holder<sf::Texture, ID> holder;
