@@ -6,10 +6,11 @@
 #include "ennemi/displayer.h"
 #include "ennemi/context.h"
 
-#define ACTION_TIME 0.20
+#define ACTION_TIME 0.2
+#define FRAME_RATE 60
 
 namespace hista {
-    const sf::Time game::FRAMERATE { sf::seconds(1.f/60.f) };
+    const sf::Time game::FRAMERATE { sf::seconds(1.f/FRAME_RATE) };
 
     game::game(unsigned int width, unsigned int height, const std::string& name)
     : _window { sf::VideoMode(width, height), name },
@@ -53,7 +54,6 @@ namespace hista {
     }
 
     void game::update(sf::Time delta_time) {
-//        std::cout << "delta: " << delta_time.asSeconds() << std::endl;
         _mario.update(delta_time.asSeconds());
     }
 
