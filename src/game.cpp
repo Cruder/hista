@@ -5,6 +5,7 @@
 #include "gui/label.h"
 #include "ennemi/displayer.h"
 #include "ennemi/context.h"
+#include "state/menu.h"
 
 #define ACTION_TIME 0.2
 #define FRAME_RATE 60
@@ -16,12 +17,17 @@ namespace hista {
     : _window { sf::VideoMode(width, height), name },
       _level { make_level("../assets/meta/level/1.hista") },
       _mario { player::context(400u, 400u) },
+      stack { state::context { _window } },
       slime_anim { entity::make_animation("../assets/meta/animations/slime.hista") } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
         _texture.loadFromFile("../assets/images/textures.png");
 
         _level->setPosition(150.0f, 150.0f);
+
+        stack.register_state<state::menu>(state::ID::Menu);
+        stack.push_state(state::ID::Menu);
+        std::cerr << "Init" << std::endl;
     }
 
     int game::run() {
@@ -45,35 +51,49 @@ namespace hista {
         sf::Event event {};
         hista::key_binding binding {};
 
+        std::cerr << "Event 1" << std::endl;
         while (_window.pollEvent(event)) {
+            stack.handle_event(event);
+            std::cerr << "Event 2" << std::endl;
             if (event.type == sf::Event::Closed) { _window.close(); }
             for(const auto &action : binding.actions()) {
                 std::cout << (int)action << std::endl;
                 _mario.startMovement(action,ACTION_TIME);
             }
+
+            if(stack.empty()) {
+                _window.close();
+            }
         }
     }
 
     void game::update(sf::Time delta_time) {
-        _mario.update(delta_time.asSeconds());
-        slime_anim->update(delta_time);
+//        _mario.update(delta_time.asSeconds());
+//        slime_anim->update(delta_time);
+        std::cerr << "Update 1" << std::endl;
+        stack.update(delta_time);
+        std::cerr << "Update 2" << std::endl;
     }
 
     void game::render() {
         _window.clear(sf::Color::Black);
 
-        auto label = hista::gui::label("Hello World");
-        auto player_ctx = hista::player::context(400u, 400u);
-        auto player = player::displayer();
-        auto ennemi_ctx = hista::ennemi::context(200u, 400u);
-        auto ennemi = ennemi::displayer(ennemi_ctx, _texture);
+//        auto label = hista::gui::label("Hello World");
+//        auto player_ctx = hista::player::context(400u, 400u);
+//        auto player = player::displayer();
+//        auto ennemi_ctx = hista::ennemi::context(200u, 400u);
+//        auto ennemi = ennemi::displayer(ennemi_ctx, _texture);
+//
+//        _window.draw(label);
+//        _window.draw(_mario);
+//        _window.draw(ennemi);
+//
+//        _window.draw(*_level);
+//        _window.draw(*slime_anim);
 
-        _window.draw(label);
-        _window.draw(_mario);
-        _window.draw(ennemi);
-
-        _window.draw(*_level);
-        _window.draw(*slime_anim);
+        std::cerr << "Render 1" << std::endl;
+        stack.draw();
+        std::cerr << "Render 2" << std::endl;
 
         _window.display();
     }

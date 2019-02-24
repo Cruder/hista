@@ -4,6 +4,8 @@
 
 #include "menu.h"
 
+#include <iostream>
+
 namespace hista {
     namespace state {
         static std::map<unsigned int, menu::options> mapper{
@@ -11,42 +13,43 @@ namespace hista {
                 {1, menu::options::Exit}
         };
 
-        menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0} {
+        menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0}, font {} {
 //            sf::Texture &texture = context.textures->get(Textures::TitleScreen);
 //            sf::Font &font = context.fonts->get(Fonts::Main);
 
 //            mBackgroundSprite.setTexture(texture);
-
-            // A simple menu demonstration
-
-            sf::Font font = sf::Font();
             font.loadFromFile("../assets/fonts/joystix.ttf");
 
-            sf::Text playOption;
-            playOption.setFont(font);
-            playOption.setString("Play");
-            // centerOrigin(playOption);
-            playOption.setPosition(_ctx.window->getView().getSize() / 2.f);
-            _options.push_back(playOption);
+            sf::Text play_option;
+            play_option.setFont(font);
+            play_option.setString("Play");
+            // centerOrigin(play_option);
+            play_option.setPosition(_ctx.window->getView().getSize() / 2.f);
+            _options.push_back(play_option);
 
-            sf::Text exitOption;
-            exitOption.setFont(font);
-            exitOption.setString("Exit");
+            sf::Text exit_option;
+            exit_option.setFont(font);
+            exit_option.setString("Exit");
             // centerOrigin(exitOption);
-            exitOption.setPosition(playOption.getPosition() + sf::Vector2f(0.f, 30.f));
-            _options.push_back(exitOption);
+            exit_option.setPosition(play_option.getPosition() + sf::Vector2f(0.f, 30.f));
+            _options.push_back(exit_option);
 
             update_option_text();
         }
 
         void menu::draw() {
+            std::cerr << "Hello 1" << std::endl;
             sf::RenderWindow &window = *get_context().window;
+            std::cerr << "Hello 2" << std::endl;
 
             window.setView(window.getDefaultView());
+            std::cerr << "Hello 3" << std::endl;
 //            window.draw(mBackgroundSprite);
 
             for (const sf::Text &text : _options) {
+                std::cerr << "Hello 4 - " << text.getString().toAnsiString() << std::endl;
                 window.draw(text);
+                std::cerr << "Hello 5" << std::endl;
             }
         }
 

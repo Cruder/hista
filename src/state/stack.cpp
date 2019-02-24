@@ -24,7 +24,7 @@ namespace hista {
 
         void stack::draw() {
             // Draw all active states from bottom to top
-            for (base::ptr &state : _stack) {
+            for (auto &state : _stack) {
                 state->draw();
             }
         }
@@ -45,8 +45,12 @@ namespace hista {
             _stack.clear();
         }
 
-        std::unique_ptr<base> stack::create_state(ID state_id) {
-            return std::move(_factories[state_id]);
+        bool stack::empty() {
+            return _stack.empty();
+        }
+
+        base* stack::create_state(ID state_id) {
+            return _factories[state_id].get();
         }
     }
 }

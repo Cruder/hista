@@ -33,6 +33,8 @@ namespace hista {
         player::player _mario;
 
         std::unique_ptr<entity::animation> slime_anim;
+
+        state::stack stack;
     };
 }
 

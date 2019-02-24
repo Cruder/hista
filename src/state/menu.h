@@ -20,6 +20,7 @@ namespace hista {
         private:
             std::vector<sf::Text> _options;
             unsigned int _options_index;
+            sf::Font font;
         public:
             enum class options {
                 Play,
