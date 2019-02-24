@@ -67,33 +67,31 @@ namespace hista {
         }
 
         std::unique_ptr<animation> make_animation(const std::string &filename) {
-            {
-                auto file = std::ifstream(filename);
-                std::string image_name;
-                std::getline(file, image_name);
+            auto file = std::ifstream(filename);
+            std::string image_name;
+            std::getline(file, image_name);
 
-                auto texture = std::make_shared<sf::Texture>();
-                texture->loadFromFile(image_name);
+            auto texture = std::make_shared<sf::Texture>();
+            texture->loadFromFile(image_name);
 
-                unsigned int x, y, count;
-                file >> x >> y;
-                file >> count;
+            unsigned int x, y, count;
+            file >> x >> y;
+            file >> count;
 
-                auto actions = std::make_unique<std::map<std::string, std::unique_ptr<animation::action>>>();
-                for(std::size_t i = 0; i < count; ++i) {
-                    std::string name;
-                    unsigned int frame_count, start_x, start_y, threshold;
+            auto actions = std::make_unique<std::map<std::string, std::unique_ptr<animation::action>>>();
+            for(std::size_t i = 0; i < count; ++i) {
+                std::string name;
+                unsigned int frame_count, start_x, start_y, threshold;
 
-                    file >> name >> frame_count >> start_x >> start_y >> threshold;
+                file >> name >> frame_count >> start_x >> start_y >> threshold;
 
 //                    std::cerr << "name " << name << " frame_count " << frame_count << " start_x " << start_x << " start_y " << start_y << " threshold " << threshold << std::endl;
 
-                    auto action = std::make_unique<animation::action>(std::weak_ptr(texture), frame_count, start_x, start_y, threshold, x, y);
-                    actions->insert(std::pair(name, std::move(action)));
-                }
-
-                return std::make_unique<animation>(std::move(actions), std::move(texture), "move");
+                auto action = std::make_unique<animation::action>(std::weak_ptr(texture), frame_count, start_x, start_y, threshold, x, y);
+                actions->insert(std::pair(name, std::move(action)));
             }
+
+            return std::make_unique<animation>(std::move(actions), std::move(texture), "move");
         }
     }
 }
