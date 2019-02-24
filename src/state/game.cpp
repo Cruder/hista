@@ -3,6 +3,7 @@
 //
 
 #include "game.h"
+#include "../key_binding.h"
 
 namespace hista {
     namespace state {
@@ -26,9 +27,15 @@ namespace hista {
         }
 
         bool game::handle_event(const sf::Event &event) {
+            auto binding = key_binding {};
             if (event.key.code == sf::Keyboard::Escape) {
                 request_stack_pop();
                 request_stack_push(ID::Menu);
+            }
+
+            for(const auto &action : binding.actions()) {
+                std::cout << (int)action << std::endl;
+                _mario.startMovement(action, 100);
             }
 
             return false;
