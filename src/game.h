@@ -10,6 +10,9 @@
 #include "level.h"
 #include "entity/animation.h"
 
+#include "state/stack.h"
+#include "state/base.h"
+
 namespace hista {
     class game final {
     public:
