@@ -1,5 +1,6 @@
 ../assets/images/slime.png
 32 24
 2
+idle
 idle 2 0 0 300
 move 6 64 0 100

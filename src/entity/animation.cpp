@@ -78,6 +78,9 @@ namespace hista {
             file >> x >> y;
             file >> count;
 
+            std::string default_action;
+            file >> default_action;
+
             auto actions = std::make_unique<std::map<std::string, std::unique_ptr<animation::action>>>();
             for(std::size_t i = 0; i < count; ++i) {
                 std::string name;
@@ -91,7 +94,7 @@ namespace hista {
                 actions->insert(std::pair(name, std::move(action)));
             }
 
-            return std::make_unique<animation>(std::move(actions), std::move(texture), "move");
+            return std::make_unique<animation>(std::move(actions), std::move(texture), default_action);
         }
     }
 }
