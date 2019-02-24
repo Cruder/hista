@@ -68,11 +68,11 @@ namespace hista {
         auto ennemi_ctx = hista::ennemi::context(200u, 400u);
         auto ennemi = ennemi::displayer(ennemi_ctx, _texture);
 
-//        _window.draw(label);
-//        _window.draw(_mario);
-//        _window.draw(ennemi);
-//
-//        _window.draw(*_level);
+        _window.draw(label);
+        _window.draw(_mario);
+        _window.draw(ennemi);
+
+        _window.draw(*_level);
         _window.draw(*slime_anim);
 
         _window.display();
