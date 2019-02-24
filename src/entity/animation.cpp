@@ -27,6 +27,10 @@ namespace hista {
             action->update(delta_time);
         }
 
+        void animation::set_animation(const std::string &animation) {
+            current_action = animation;
+        }
+
         animation::action::action(const std::weak_ptr<sf::Texture>& image, unsigned int count, unsigned int x, unsigned int y,
                                   unsigned int threshold, unsigned int width, unsigned int height) :
                                   image { image }, frame_count { count },

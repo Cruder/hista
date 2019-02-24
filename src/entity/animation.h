@@ -53,6 +53,7 @@ namespace hista {
 
             void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
             void update(const sf::Time& delta_time);
+            void set_animation(const std::string& animation);
         private:
             std::string current_action;
             std::unique_ptr<std::map<std::string, std::unique_ptr<action>>> actions;
