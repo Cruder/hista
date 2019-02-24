@@ -29,9 +29,12 @@ add_executable(hista_project
   src/tilemap.cpp src/tilemap.h
   src/tileset.cpp src/tileset.h
   src/entity/animation.cpp src/entity/animation.h
-        src/state/base.cpp src/state/base.h
+  src/state/base.cpp src/state/base.h
   src/state/stack.cpp src/state/stack.h
   src/state/menu.cpp src/state/menu.h
   src/state/identifier.h
-        src/state/context.cpp src/state/context.h src/state/game.cpp src/state/game.h)
+  src/state/context.cpp src/state/context.h src/state/game.cpp src/state/game.h
+  src/entity/enemy.cpp src/entity/enemy.h
+)
+
 target_link_libraries(hista_project sfml-window sfml-graphics sfml-network sfml-audio)

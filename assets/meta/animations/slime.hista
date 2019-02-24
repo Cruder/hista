@@ -1,6 +1,8 @@
 ../assets/images/slime.png
 32 24
-2
-idle
-idle 2 0 0 300
-move 6 64 0 100
+4
+attack
+idle 3 0 0 300
+move 5 96 0 100
+attack 8 0 24 100
+die 6 0 49 150

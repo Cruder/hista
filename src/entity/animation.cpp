@@ -18,7 +18,7 @@ namespace hista {
         void animation::draw(sf::RenderTarget &target, sf::RenderStates states) const {
             auto action = actions->find(current_action)->second.get();
 
-            target.draw(action->current_sprite());
+            target.draw(action->current_sprite(), states);
         }
 
         void animation::update(const sf::Time &delta_time) {
