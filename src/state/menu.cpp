@@ -38,18 +38,12 @@ namespace hista {
         }
 
         void menu::draw() {
-            std::cerr << "Hello 1" << std::endl;
             sf::RenderWindow &window = *get_context().window;
-            std::cerr << "Hello 2" << std::endl;
 
             window.setView(window.getDefaultView());
-            std::cerr << "Hello 3" << std::endl;
-//            window.draw(mBackgroundSprite);
 
             for (const sf::Text &text : _options) {
-                std::cerr << "Hello 4 - " << text.getString().toAnsiString() << std::endl;
                 window.draw(text);
-                std::cerr << "Hello 5" << std::endl;
             }
         }
 
@@ -58,20 +52,17 @@ namespace hista {
         }
 
         bool menu::handle_event(const sf::Event &event) {
-            // The demonstration menu logic
             if (event.type != sf::Event::KeyPressed)
                 return false;
 
             if (event.key.code == sf::Keyboard::Return) {
                 if (mapper[_options_index] == options::Play) {
                     request_stack_pop();
-//                    request_stack_push(States::Game);
+                    request_stack_push(ID::Game);
                 } else if (mapper[_options_index] == options::Exit) {
-                    // The exit option was chosen, by removing itself, the stack will be empty, and the game will know it is time to close.
                     request_stack_pop();
                 }
             } else if (event.key.code == sf::Keyboard::Up) {
-                // Decrement and wrap-around
                 if (_options_index > 0) {
                     _options_index--;
                 } else {
@@ -80,7 +71,6 @@ namespace hista {
 
                 update_option_text();
             } else if (event.key.code == sf::Keyboard::Down) {
-                // Increment and wrap-around
                 if (_options_index < _options.size() - 1) {
                     _options_index++;
                 } else {
@@ -97,12 +87,10 @@ namespace hista {
             if (_options.empty())
                 return;
 
-            // White all texts
             for (sf::Text &text : _options) {
                 text.setFillColor(sf::Color::White);
             }
 
-            // Red the selected text
             _options[_options_index].setFillColor(sf::Color::Red);
         }
 

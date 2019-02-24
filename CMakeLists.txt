@@ -33,5 +33,5 @@ add_executable(hista_project
   src/state/stack.cpp src/state/stack.h
   src/state/menu.cpp src/state/menu.h
   src/state/identifier.h
-        src/state/context.cpp src/state/context.h)
+        src/state/context.cpp src/state/context.h src/state/game.cpp src/state/game.h)
 target_link_libraries(hista_project sfml-window sfml-graphics sfml-network sfml-audio)
