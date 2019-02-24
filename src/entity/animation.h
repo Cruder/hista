@@ -55,8 +55,7 @@ namespace hista {
             void update(const sf::Time& delta_time);
             void set_animation(const std::string& animation);
 
-            void setPosition(float x, float y);
-            void setScale(float xScale, float yScale);
+
         private:
             std::string current_action;
             std::unique_ptr<std::map<std::string, std::unique_ptr<action>>> actions;

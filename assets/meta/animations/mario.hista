@@ -1,8 +1,10 @@
-../assets/images/textures.png
+../assets/images/mario.png
 16 16
-2
+5
 idle
-idle 1 66 23 300
-move_left 2 88 24 150
-move_right 2 88 42 150
+idle 1 1 20 300
+idle_left 1 1 2 300
+idle_right 1 1 20 300
+move_left 2 17 2 150
+move_right 2 17 20 150
 

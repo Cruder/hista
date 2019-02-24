@@ -5,11 +5,10 @@
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
-#include "player/displayer.h"
-#include "player/player.h"
 #include "level.h"
 #include "entity/animation.h"
 #include "entity/enemy.h"
+#include "entity/mario.h"
 
 #include "state/stack.h"
 #include "state/base.h"

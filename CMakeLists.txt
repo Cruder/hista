@@ -8,9 +8,7 @@ find_package(SFML 2.5 REQUIRED system window graphics network audio)
 add_executable(hista_project
     src/main.cpp
     src/key_binding.cpp src/key_binding.h
-    src/player/actions.h
-    src/player/displayer.cpp src/player/displayer.h
-    src/player/context.cpp src/player/context.h
+    src/player/context.h
     src/game.cpp src/game.h
     src/gui/container.cpp src/gui/container.h
     src/gui/component.cpp src/gui/component.h
@@ -23,8 +21,6 @@ add_executable(hista_project
     src/ennemi/context.h
     src/ennemi/displayer.cpp src/ennemi/displayer.h
     src/behavior/movable.h
-    src/player/player_updater.cpp src/player/player_updater.h
-    src/player/player.cpp src/player/player.h
     src/level.cpp src/level.h
     src/tilemap.cpp src/tilemap.h
     src/tileset.cpp src/tileset.h
@@ -33,8 +29,10 @@ add_executable(hista_project
     src/state/stack.cpp src/state/stack.h
     src/state/menu.cpp src/state/menu.h
     src/state/identifier.h
-    src/state/context.cpp src/state/context.h src/state/game.cpp src/state/game.h
+    src/state/context.cpp src/state/context.h
+    src/state/game.cpp src/state/game.h
     src/entity/enemy.cpp src/entity/enemy.h
+    src/entity/mario.cpp src/entity/mario.h
 )
 
 target_link_libraries(hista_project sfml-window sfml-graphics sfml-network sfml-audio)

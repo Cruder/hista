@@ -41,16 +41,6 @@ namespace hista {
             sprite.setTexture(*image.lock());
         }
 
-        void animation::setPosition(float x, float y) {
-            auto action = actions->find(current_action)->second.get();
-            action->setPosition(x,y);
-        }
-
-        void animation::setScale(float xScale, float yScale) {
-            auto action = actions->find(current_action)->second.get();
-            action->setScale(xScale,yScale);
-        }
-
         void animation::action::next_frame() {
             current_frame = (current_frame + 1) % frame_count;
         }
