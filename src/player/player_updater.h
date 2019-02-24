@@ -4,6 +4,7 @@
 #include <map>
 #include "displayer.h"
 #include "actions.h"
+#include <SFML/System/Time.hpp>
 
 namespace hista {
     namespace player {
@@ -12,7 +13,7 @@ namespace hista {
             playerUpdater();
         public:
             void startMovement(const hista::player::actions &action, float timeInit);
-            actions update(context& position, float delta_time);
+            actions update(context& position, sf::Time delta_time);
 
         private:
             void resetAction();

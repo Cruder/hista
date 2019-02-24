@@ -1,0 +1,8 @@
+../assets/images/textures.png
+16 16
+2
+idle
+idle 1 66 23 300
+move_left 2 88 24 150
+move_right 2 88 42 150
+

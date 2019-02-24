@@ -19,9 +19,9 @@
 
 namespace hista {
     namespace entity {
-        class animation : public sf::Drawable {
+    class animation : public sf::Drawable {
         public:
-            class action : public sf::NonCopyable {
+            class action : public sf::NonCopyable, public sf::Transformable {
             public:
                 explicit action(const std::weak_ptr<sf::Texture>& image, unsigned int count, unsigned int x, unsigned int y, unsigned int threshold,
                        unsigned int width, unsigned int height);
@@ -54,6 +54,9 @@ namespace hista {
             void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
             void update(const sf::Time& delta_time);
             void set_animation(const std::string& animation);
+
+            void setPosition(float x, float y);
+            void setScale(float xScale, float yScale);
         private:
             std::string current_action;
             std::unique_ptr<std::map<std::string, std::unique_ptr<action>>> actions;

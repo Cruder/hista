@@ -5,6 +5,7 @@
 #include "../behavior/movable.h"
 #include "player_updater.h"
 #include "actions.h"
+#include "../entity/animation.h"
 
 namespace hista{
     namespace player{
@@ -13,7 +14,7 @@ namespace hista{
             player(context position);
 
         public:
-            void update(float delta_time);
+            void update(sf::Time delta_time);
             void startMovement(actions action, float timeInit);
             void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
@@ -22,6 +23,7 @@ namespace hista{
             playerUpdater _updater;
             displayer _displayer;
             actions _currentAction;
+            std::unique_ptr<hista::entity::animation> _animations;
         };
     }
 }
