@@ -15,7 +15,8 @@ namespace hista {
     game::game(unsigned int width, unsigned int height, const std::string& name)
     : _window { sf::VideoMode(width, height), name },
       _level { make_level("../assets/meta/level/1.hista") },
-      _mario { player::context(400u, 400u) } {
+      _mario { player::context(400u, 400u) },
+      slime_anim { entity::make_animation("../assets/meta/animations/slime.hista") } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
         _texture.loadFromFile("../assets/images/textures.png");
@@ -55,6 +56,7 @@ namespace hista {
 
     void game::update(sf::Time delta_time) {
         _mario.update(delta_time.asSeconds());
+        slime_anim->update(delta_time);
     }
 
     void game::render() {
@@ -66,11 +68,12 @@ namespace hista {
         auto ennemi_ctx = hista::ennemi::context(200u, 400u);
         auto ennemi = ennemi::displayer(ennemi_ctx, _texture);
 
-        _window.draw(label);
-        _window.draw(_mario);
-        _window.draw(ennemi);
-
-        _window.draw(*_level);
+//        _window.draw(label);
+//        _window.draw(_mario);
+//        _window.draw(ennemi);
+//
+//        _window.draw(*_level);
+        _window.draw(*slime_anim);
 
         _window.display();
     }

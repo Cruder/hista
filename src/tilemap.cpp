@@ -13,7 +13,7 @@ namespace hista {
     }
 
     void tilemap::layer::draw(sf::RenderTarget &target, sf::RenderStates& states, hista::tileset &tileset) const {
-        std::cerr << "Draw tilemap layer" << std::endl;
+//        std::cerr << "Draw tilemap layer" << std::endl;
         int acc_y = 0;
         for(const auto& line : labels) {
             int acc_x = 0;
@@ -40,7 +40,7 @@ namespace hista {
             for(std::size_t j = 0; j < y; ++j) {
                 std::string label;
                 file >> label;
-                std::cerr << "Label " << label << std::endl;
+//                std::cerr << "Label " << label << std::endl;
                 line.push_back(label);
             }
             labels.push_back(line);
@@ -55,7 +55,7 @@ namespace hista {
         file >> x >> y;
         file >> count;
 
-        std::cerr << x << ' ' << y << ' ' << count << std::endl;
+//        std::cerr << x << ' ' << y << ' ' << count << std::endl;
 
         std::vector<tilemap::layer> layers;
         layers.reserve(count);
@@ -63,7 +63,7 @@ namespace hista {
             layers.push_back(internal__make_layer(file, x, y));
         }
 
-        std::cerr << "End" << std::endl;
+//        std::cerr << "End" << std::endl;
         return std::make_unique<tilemap>(layers, internal__make_layer(file, x, y), internal__make_layer(file, x, y));
     }
 }

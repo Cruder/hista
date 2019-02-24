@@ -16,7 +16,7 @@ namespace hista {
               coef_x { coef_x },
               coef_y { coef_y },
               sprite {} {
-        std::cerr << "Coef " << coef_x << ' ' << coef_y << std::endl;
+//        std::cerr << "Coef " << coef_x << ' ' << coef_y << std::endl;
         sprite.setTexture(resource());
     }
 
@@ -25,9 +25,9 @@ namespace hista {
     }
 
     sf::Sprite &tileset::get(const std::string &identifier) {
-        std::cerr << "Tileset get " << identifier << std::endl;
+//        std::cerr << "Tileset get " << identifier << std::endl;
         auto item = _items->find(identifier)->second;
-        std::cerr << "Tileset get " << item->_x << '+' << item->_y << std::endl;
+//        std::cerr << "Tileset get " << item->_x << '+' << item->_y << std::endl;
         sprite.setTextureRect(sf::IntRect(item->_x, item->_y, tile_size_x, tile_size_y));
 //        sprite.scale(coef_x, coef_y);
         return sprite;
@@ -37,7 +37,7 @@ namespace hista {
         auto file = std::ifstream(filename);
         std::string image_name;
         std::getline(file, image_name);
-        std::cerr << "Filename => " << image_name << std::endl;
+//        std::cerr << "Filename => " << image_name << std::endl;
         auto holder = std::make_unique<resource::texture::holder>();
         holder->load(resource::texture::ID::Tileset, image_name);
         unsigned int x, y, count;
@@ -49,7 +49,7 @@ namespace hista {
             std::string id;
             unsigned int rel_x, rel_y;
             file >> id >> rel_x >> rel_y;
-            std::cerr << "Tileset insert " << id << std::endl;
+//            std::cerr << "Tileset insert " << id << std::endl;
             items->insert(std::make_pair(id, std::make_shared<hista::tileset::item>(rel_x, rel_y)));
         }
 

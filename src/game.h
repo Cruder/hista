@@ -8,6 +8,7 @@
 #include "player/displayer.h"
 #include "player/player.h"
 #include "level.h"
+#include "entity/animation.h"
 
 namespace hista {
     class game final {
@@ -27,6 +28,8 @@ namespace hista {
 
         std::unique_ptr<level> _level;
         player::player _mario;
+
+        std::unique_ptr<entity::animation> slime_anim;
     };
 }
 
