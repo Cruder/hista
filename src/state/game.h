@@ -14,7 +14,7 @@ namespace hista {
     namespace state {
         class game : public base {
         public:
-            game(stack &stack, context ctx);
+            game(stack &stack, context ctx, std::unique_ptr<level>&& level);
 
             void draw() override;
 

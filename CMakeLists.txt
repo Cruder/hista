@@ -32,6 +32,6 @@ add_executable(hista_project
     src/state/game.cpp src/state/game.h
     src/entity/enemy.cpp src/entity/enemy.h
     src/entity/mario.cpp src/entity/mario.h
-        src/state/victory.cpp src/state/victory.h src/state/defeat.cpp src/state/defeat.h)
+        src/state/victory.cpp src/state/victory.h src/state/defeat.cpp src/state/defeat.h src/state/level1.cpp src/state/level1.h src/state/level2.cpp src/state/level2.h)
 
 target_link_libraries(hista_project sfml-window sfml-graphics sfml-network sfml-audio)

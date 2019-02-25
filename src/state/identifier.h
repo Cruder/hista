@@ -6,7 +6,8 @@ namespace hista {
         enum class ID {
             None,
             Menu,
-            Game,
+            Game1,
+            Game2,
             Pause,
             Win,
             Lose

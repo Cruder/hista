@@ -1,7 +1,3 @@
-//
-// Created by necros on 25/02/19.
-//
-
 #include "victory.h"
 
 namespace hista {
@@ -38,6 +34,7 @@ namespace hista {
         bool victory::handle_event(const sf::Event &event) {
             if (event.type == sf::Event::KeyPressed) {
                 request_stack_pop();
+                request_stack_push(ID::Game2);
                 return true;
             }
 
