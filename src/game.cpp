@@ -7,6 +7,8 @@
 #include "ennemi/context.h"
 #include "state/menu.h"
 #include "state/game.h"
+#include "state/victory.h"
+#include "state/defeat.h"
 
 #define ACTION_TIME 0.2
 #define FRAME_RATE 60
@@ -24,6 +26,8 @@ namespace hista {
 
         stack.register_state<state::menu>(state::ID::Menu);
         stack.register_state<hista::state::game>(state::ID::Game);
+        stack.register_state<hista::state::victory>(state::ID::Win);
+        stack.register_state<hista::state::defeat>(state::ID::Lose);
         stack.push_state(state::ID::Menu);
     }
 

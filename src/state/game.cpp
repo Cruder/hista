@@ -34,6 +34,16 @@ namespace hista {
                 request_stack_push(ID::Menu);
             }
 
+            if (event.key.code == sf::Keyboard::P) {
+                request_stack_pop();
+                request_stack_push(ID::Win);
+            }
+
+            if (event.key.code == sf::Keyboard::Q) {
+                request_stack_pop();
+                request_stack_push(ID::Lose);
+            }
+
             for (const auto &action : binding.actions()) {
                 _mario->start_movement(action);
             }
