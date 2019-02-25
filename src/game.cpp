@@ -51,9 +51,6 @@ namespace hista {
         while (_window.pollEvent(event)) {
             stack.handle_event(event);
             if (event.type == sf::Event::Closed) { _window.close(); }
-            for(const auto &action : binding.actions()) {
-                std::cout << (int)action << std::endl;
-            }
 
             if(stack.empty()) {
                 _window.close();

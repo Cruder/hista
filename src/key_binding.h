@@ -4,12 +4,12 @@
 #include <map>
 #include <SFML/Window/Keyboard.hpp>
 #include <vector>
-#include "player/actions.h"
+#include "entity/mario.h"
 
 namespace hista {
     class key_binding {
     public:
-        typedef std::map<sf::Keyboard::Key, player::actions> mapper;
+        typedef std::map<sf::Keyboard::Key, entity::mario::direction> mapper;
 
     public:
         static const mapper DIRECTIONAL_KEYS;
@@ -18,7 +18,7 @@ namespace hista {
 
     public:
         explicit key_binding(const mapper& keys = DIRECTIONAL_KEYS);
-        std::vector<player::actions> actions();
+        std::vector<entity::mario::direction> actions();
 
     private:
         mapper _keys;

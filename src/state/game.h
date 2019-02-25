@@ -5,8 +5,8 @@
 #ifndef HISTA_PROJECT__STATE_GAME_H
 #define HISTA_PROJECT__STATE_GAME_H
 
-#include "../player/player.h"
 #include "../level.h"
+#include "../entity/mario.h"
 #include "base.h"
 
 namespace hista {
@@ -22,7 +22,7 @@ namespace hista {
             bool handle_event(const sf::Event &event) override;
 
         private:
-            player::player _mario;
+            std::unique_ptr<entity::mario> _mario;
             std::unique_ptr<level> _level;
         };
     }
