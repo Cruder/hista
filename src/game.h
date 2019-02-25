@@ -10,6 +10,9 @@
 #include "level.h"
 #include "entity/animation.h"
 
+#include "state/stack.h"
+#include "state/base.h"
+
 namespace hista {
     class game final {
     public:
@@ -30,6 +33,8 @@ namespace hista {
         player::player _mario;
 
         std::unique_ptr<entity::animation> slime_anim;
+
+        state::stack stack;
     };
 }
 

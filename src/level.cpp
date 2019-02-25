@@ -22,10 +22,8 @@ namespace hista {
         std::string file_content;
         std::getline(file, file_content); // skip blank line
         std::getline(file, file_content);
-//        std::cerr << "Tilemap => " << file_content << std::endl;
         auto tilemap = make_tilemap(file_content);
         std::getline(file, file_content);
-//        std::cerr << "Tileset => " << file_content << std::endl;
         auto tileset = make_tileset(file_content, x, y);
         return std::make_unique<level>(std::move(tilemap), std::move(tileset));
     }
