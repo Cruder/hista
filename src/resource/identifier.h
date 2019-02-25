@@ -3,14 +3,16 @@
 
 namespace sf {
     class Texture;
+
     class Font;
+
 //    class Shader;
     class SoundBuffer;
 }
 
 namespace hista {
     namespace resource {
-        template <typename Resource, typename Identifier>
+        template<typename Resource, typename Identifier>
         class holder;
 
         namespace texture {

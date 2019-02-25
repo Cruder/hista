@@ -22,12 +22,13 @@ namespace hista {
         public:
             class action : sf::NonCopyable {
             public:
-                action(unsigned int threshold, const std::string& direction, const std::string& animation);
+                action(unsigned int threshold, const std::string &direction, const std::string &animation);
 
-                void assign_enemy(enemy* enemy);
+                void assign_enemy(enemy *enemy);
+
                 std::optional<sf::Time> update(sf::Time dt);
 
-                const std::string& animation() const;
+                const std::string &animation() const;
 
             public:
             private:
@@ -37,25 +38,27 @@ namespace hista {
 
                 direction direction;
 
-                enemy* self;
+                enemy *self;
             };
 
         public:
-            enemy(sf::Vector2f position, std::unique_ptr<animation>&& animation);
+            enemy(sf::Vector2f position, std::unique_ptr<animation> &&animation);
 
             void update(sf::Time dt) override;
+
             void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
             void move(sf::Vector2f delta);
 
-            void add_action(std::unique_ptr<action>&& action);
+            void add_action(std::unique_ptr<action> &&action);
+
         private:
             std::unique_ptr<animation> animation;
             std::vector<std::unique_ptr<action>> actions;
             unsigned int current_action;
         };
 
-        std::unique_ptr<enemy> make_enemy(const std::string& filename, sf::Vector2f position);
+        std::unique_ptr<enemy> make_enemy(const std::string &filename, sf::Vector2f position);
     }
 }
 

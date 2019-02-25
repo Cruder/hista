@@ -22,6 +22,7 @@ namespace hista {
 
         public:
             base(stack &stack, context ctx);
+
             virtual ~base() {};
 
             virtual void draw() = 0;

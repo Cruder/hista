@@ -12,12 +12,12 @@
 #define FRAME_RATE 60
 
 namespace hista {
-    const sf::Time game::FRAMERATE { sf::seconds(1.f/FRAME_RATE) };
+    const sf::Time game::FRAMERATE{sf::seconds(1.f / FRAME_RATE)};
 
-    game::game(unsigned int width, unsigned int height, const std::string& name)
-    : _window { sf::VideoMode(width, height), name },
-      stack { state::context { _window } },
-      slime { entity::make_enemy("../assets/meta/enemy/slime.hista", sf::Vector2f(200, 200)) } {
+    game::game(unsigned int width, unsigned int height, const std::string &name)
+            : _window{sf::VideoMode(width, height), name},
+              stack{state::context{_window}},
+              slime{entity::make_enemy("../assets/meta/enemy/slime.hista", sf::Vector2f(200, 200))} {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
 
@@ -28,10 +28,10 @@ namespace hista {
     }
 
     int game::run() {
-        sf::Clock clock {};
-        sf::Time accumulator { sf::Time::Zero };
+        sf::Clock clock{};
+        sf::Time accumulator{sf::Time::Zero};
 
-        while(_window.isOpen()) {
+        while (_window.isOpen()) {
             sf::Time delta_time = clock.restart();
 
             process_events();
@@ -45,14 +45,14 @@ namespace hista {
      * TODO: Queue for handling multiples input
      */
     void game::process_events() {
-        sf::Event event {};
-        hista::key_binding binding {};
+        sf::Event event{};
+        hista::key_binding binding{};
 
         while (_window.pollEvent(event)) {
             stack.handle_event(event);
             if (event.type == sf::Event::Closed) { _window.close(); }
 
-            if(stack.empty()) {
+            if (stack.empty()) {
                 _window.close();
             }
         }

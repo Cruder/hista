@@ -19,17 +19,20 @@
 
 namespace hista {
     namespace entity {
-    class animation : public sf::Drawable {
+        class animation : public sf::Drawable {
         public:
             class action : public sf::NonCopyable, public sf::Transformable {
             public:
-                explicit action(const std::weak_ptr<sf::Texture>& image, unsigned int count, unsigned int x, unsigned int y, unsigned int threshold,
-                       unsigned int width, unsigned int height);
+                explicit action(const std::weak_ptr<sf::Texture> &image, unsigned int count, unsigned int x,
+                                unsigned int y, unsigned int threshold,
+                                unsigned int width, unsigned int height);
 
                 void next_frame();
-                sf::Sprite& current_sprite();
 
-                void update(const sf::Time& delta_time);
+                sf::Sprite &current_sprite();
+
+                void update(const sf::Time &delta_time);
+
             private:
                 const unsigned int frame_count;
                 const unsigned int x_start;
@@ -48,12 +51,16 @@ namespace hista {
                 unsigned int current_frame;
 
             };
-        public:
-            animation(std::unique_ptr<std::map<std::string, std::unique_ptr<action>>>&& actions, std::shared_ptr<sf::Texture>&& image, const std::string& current_action);
 
-            void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-            void update(const sf::Time& delta_time);
-            void set_animation(const std::string& animation);
+        public:
+            animation(std::unique_ptr<std::map<std::string, std::unique_ptr<action>>> &&actions,
+                      std::shared_ptr<sf::Texture> &&image, const std::string &current_action);
+
+            void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+
+            void update(const sf::Time &delta_time);
+
+            void set_animation(const std::string &animation);
 
 
         private:
@@ -63,7 +70,7 @@ namespace hista {
             std::shared_ptr<sf::Texture> image;
         };
 
-        std::unique_ptr<animation> make_animation(const std::string& filename);
+        std::unique_ptr<animation> make_animation(const std::string &filename);
     }
 }
 

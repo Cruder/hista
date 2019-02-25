@@ -18,7 +18,7 @@ namespace hista {
             displayer(ennemi::context context, const sf::Texture &texture);
 
         public:
-            void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+            void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
         private:
             context _context;

@@ -17,23 +17,27 @@ namespace hista {
             using line = std::vector<label>;
             using map_matrix = std::vector<line>;
         public:
-            layer(const map_matrix labels) : labels { labels } {}
-            void draw(sf::RenderTarget &target, sf::RenderStates& states, hista::tileset& tileset) const;
+            layer(const map_matrix labels) : labels{labels} {}
+
+            void draw(sf::RenderTarget &target, sf::RenderStates &states, hista::tileset &tileset) const;
+
         private:
 
             map_matrix labels;
         };
 
     public:
-        tilemap(const std::vector<layer>& layers, const layer& collision, const layer& climbable);
-        void draw(sf::RenderTarget &target, sf::RenderStates& states, hista::tileset& tileset) const;
+        tilemap(const std::vector<layer> &layers, const layer &collision, const layer &climbable);
+
+        void draw(sf::RenderTarget &target, sf::RenderStates &states, hista::tileset &tileset) const;
+
     private:
         std::vector<layer> _layers;
         layer _collision;
         layer _climbable;
     };
 
-    std::unique_ptr<tilemap> make_tilemap(const std::string& filename);
+    std::unique_ptr<tilemap> make_tilemap(const std::string &filename);
 };
 
 #endif //HISTA_PROJECT_TILEMAP_H

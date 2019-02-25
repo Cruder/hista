@@ -16,7 +16,6 @@ add_executable(hista_project
     src/gui/label.cpp src/gui/label.h
     src/resource/holder.inl src/resource/holder.h
     src/resource/identifier.h
-    src/state.cpp src/state.h
     src/ennemi/actions.h
     src/ennemi/context.h
     src/ennemi/displayer.cpp src/ennemi/displayer.h

@@ -16,12 +16,15 @@
 namespace hista {
     class game final {
     public:
-        game(unsigned int width, unsigned int height, const std::string& name);
+        game(unsigned int width, unsigned int height, const std::string &name);
+
         int run();
 
     private:
         void process_events();
+
         void update(sf::Time delta_time);
+
         void render();
 
     private:

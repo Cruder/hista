@@ -51,12 +51,12 @@ namespace hista {
             template<typename T>
             void register_state(ID state_id);
 
-            base* create_state(ID state_id);
+            base *create_state(ID state_id);
 
             bool empty();
 
         private:
-            std::vector<base*> _stack;
+            std::vector<base *> _stack;
             context _ctx;
             std::map<state::ID, std::unique_ptr<hista::state::base>> _factories;
         };

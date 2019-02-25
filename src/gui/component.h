@@ -19,15 +19,18 @@ namespace hista {
         class component : public sf::Drawable, public sf::Transformable, private sf::NonCopyable {
         public:
             component();
+
             ~component() override;
 
             inline void select() { _selected = true; }
+
             inline void deselect() { _selected = false; }
 
             inline void activate() { _active = true; }
+
             inline void deactivate() { _active = false; }
 
-            virtual void handle_event(const sf::Event& event) = 0;
+            virtual void handle_event(const sf::Event &event) = 0;
 
         private:
             bool _selected;
