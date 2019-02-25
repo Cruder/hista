@@ -16,15 +16,11 @@ namespace hista {
 
     game::game(unsigned int width, unsigned int height, const std::string& name)
     : _window { sf::VideoMode(width, height), name },
-      _level { make_level("../assets/meta/level/1.hista") },
-      _mario { player::context(400u, 400u) },
       stack { state::context { _window } },
-      slime_anim { entity::make_animation("../assets/meta/animations/slime.hista") } {
+      slime { entity::make_enemy("../assets/meta/enemy/slime.hista", sf::Vector2f(200, 200)) } {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
-        _texture.loadFromFile("../assets/images/textures.png");
 
-        _level->setPosition(150.0f, 150.0f);
 
         stack.register_state<state::menu>(state::ID::Menu);
         stack.register_state<hista::state::game>(state::ID::Game);
@@ -57,7 +53,6 @@ namespace hista {
             if (event.type == sf::Event::Closed) { _window.close(); }
             for(const auto &action : binding.actions()) {
                 std::cout << (int)action << std::endl;
-                _mario.startMovement(action,ACTION_TIME);
             }
 
             if(stack.empty()) {
@@ -68,11 +63,15 @@ namespace hista {
 
     void game::update(sf::Time delta_time) {
         stack.update(delta_time);
+        slime->update(delta_time);
     }
 
     void game::render() {
         _window.clear(sf::Color::Black);
         stack.draw();
+
+        _window.draw(*slime);
+
         _window.display();
     }
 }

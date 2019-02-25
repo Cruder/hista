@@ -9,6 +9,7 @@
 #include "player/player.h"
 #include "level.h"
 #include "entity/animation.h"
+#include "entity/enemy.h"
 
 #include "state/stack.h"
 #include "state/base.h"
@@ -26,15 +27,11 @@ namespace hista {
 
     private:
         static const sf::Time FRAMERATE;
-        sf::Texture _texture;
         sf::RenderWindow _window;
 
-        std::unique_ptr<level> _level;
-        player::player _mario;
-
-        std::unique_ptr<entity::animation> slime_anim;
-
         state::stack stack;
+
+        std::unique_ptr<entity::enemy> slime;
     };
 }
 

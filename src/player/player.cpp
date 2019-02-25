@@ -19,6 +19,5 @@ namespace hista{
             _currentAction = _updater.update(_position, delta_time);
             _displayer.refreshPosition(_position,_currentAction);
         }
-
     }
 }
