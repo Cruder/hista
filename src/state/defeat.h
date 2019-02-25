@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 #include "base.h"
 
 namespace hista {
@@ -24,6 +25,9 @@ namespace hista {
         private:
             sf::Font font;
             sf::Text message;
+
+            sf::Texture background;
+            sf::Sprite background_displayer;
         };
     }
 }

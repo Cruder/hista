@@ -14,12 +14,9 @@
 #define FRAME_RATE 60
 
 namespace hista {
-    const sf::Time game::FRAMERATE{sf::seconds(1.f / FRAME_RATE)};
-
     game::game(unsigned int width, unsigned int height, const std::string &name)
             : _window{sf::VideoMode(width, height), name},
-              stack{state::context{_window}},
-              slime{entity::make_enemy("../assets/meta/enemy/slime.hista", sf::Vector2f(200, 200))} {
+              stack{state::context{_window}} {
         _window.setFramerateLimit(60);
         _window.setVerticalSyncEnabled(true);
 
@@ -64,14 +61,12 @@ namespace hista {
 
     void game::update(sf::Time delta_time) {
         stack.update(delta_time);
-        slime->update(delta_time);
     }
 
     void game::render() {
         _window.clear(sf::Color::Black);
-        stack.draw();
 
-        _window.draw(*slime);
+        stack.draw();
 
         _window.display();
     }

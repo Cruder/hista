@@ -3,6 +3,7 @@
 
 #include "base.h"
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 namespace hista {
     namespace state {
@@ -23,6 +24,9 @@ namespace hista {
             std::vector<sf::Text> _options;
             unsigned int _options_index;
             sf::Font font;
+
+            sf::Texture background;
+            sf::Sprite background_displayer;
         public:
             enum class options {
                 Play,
