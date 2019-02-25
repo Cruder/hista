@@ -8,6 +8,7 @@
 #include "../level.h"
 #include "../entity/mario.h"
 #include "base.h"
+#include "../entity/enemy.h"
 
 namespace hista {
     namespace state {
@@ -24,6 +25,8 @@ namespace hista {
         private:
             std::unique_ptr<entity::mario> _mario;
             std::unique_ptr<level> _level;
+
+            std::vector<std::unique_ptr<entity::enemy>> _slimes;
         };
     }
 }
