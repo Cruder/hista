@@ -14,7 +14,7 @@ namespace hista {
         };
 
         menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0}, font{}, background{},
-                                                background_displayer{} {
+                                                background_displayer{}, music{} {
             background.loadFromFile("../assets/images/back.png");
             background_displayer.setTexture(background);
             background_displayer.scale(1.7, 1.7);
@@ -37,6 +37,11 @@ namespace hista {
             _options.push_back(exit_option);
 
             update_option_text();
+
+            music.openFromFile("../assets/sound/background.wav");
+
+            music.play();
+            music.setPlayingOffset(sf::seconds(1.0f));
         }
 
         void menu::draw() {
@@ -59,6 +64,8 @@ namespace hista {
                 return false;
 
             if (event.key.code == sf::Keyboard::Return) {
+                music.stop();
+
                 if (mapper[_options_index] == options::Play) {
                     request_stack_pop();
                     request_stack_push(ID::Game);

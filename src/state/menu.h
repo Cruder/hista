@@ -4,6 +4,7 @@
 #include "base.h"
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Audio/Music.hpp>
 
 namespace hista {
     namespace state {
@@ -27,6 +28,8 @@ namespace hista {
 
             sf::Texture background;
             sf::Sprite background_displayer;
+
+            sf::Music music;
         public:
             enum class options {
                 Play,
