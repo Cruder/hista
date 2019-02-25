@@ -8,24 +8,25 @@ namespace hista {
         void mario::update(sf::Time dt) {
             _animation->update(dt);
 
+            const unsigned int SPEED = 50;
+
             if (_elapsed_time > 0) {
                 _elapsed_time -= dt.asMilliseconds();
                 switch (_current_action) {
                     case direction::LEFT:
-                        position.x += -1 * dt.asSeconds() * 15;
+                        position.x += -1 * dt.asSeconds() * SPEED;
                         break;
                     case direction::RIGHT:
-                        position.x += 1 * dt.asSeconds() * 15;
+                        position.x += 1 * dt.asSeconds() * SPEED;
                         break;
                     case direction::CLIMB:
-                        position.y += -1 * dt.asSeconds() * 15;
+                        position.y += -1 * dt.asSeconds() * SPEED;
                         break;
                     case direction::DOWN:
-                        position.y += 1 * dt.asSeconds() * 15;
+                        position.y += 1 * dt.asSeconds() * SPEED;
                     default:
                         break;
                 }
-
 
             } else
                 reset();
