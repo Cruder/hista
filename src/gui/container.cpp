@@ -5,7 +5,7 @@ namespace hista {
         void container::draw(sf::RenderTarget &target, sf::RenderStates states) const {
             states.transform *= getTransform();
 
-            for(const auto& child : _children) {
+            for (const auto &child : _children) {
                 target.draw(*child, states);
             }
         }

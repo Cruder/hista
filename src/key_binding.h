@@ -17,7 +17,8 @@ namespace hista {
         static const mapper AZEQSD_KEYS;
 
     public:
-        explicit key_binding(const mapper& keys = DIRECTIONAL_KEYS);
+        explicit key_binding(const mapper &keys = DIRECTIONAL_KEYS);
+
         std::vector<entity::mario::direction> actions();
 
     private:

@@ -11,11 +11,12 @@ namespace hista {
         _tilemap->draw(target, states, *_tileset);
     }
 
-    level::level(std::unique_ptr<tilemap> tilemap, std::unique_ptr<tileset> tileset) : _tilemap { std::move(tilemap) }, _tileset { std::move(tileset) } {
+    level::level(std::unique_ptr<tilemap> tilemap, std::unique_ptr<tileset> tileset) : _tilemap{std::move(tilemap)},
+                                                                                       _tileset{std::move(tileset)} {
 
     }
 
-    std::unique_ptr<level> make_level(const std::string& filename) {
+    std::unique_ptr<level> make_level(const std::string &filename) {
         auto file = std::ifstream(filename);
         unsigned int x, y;
         file >> x >> y;

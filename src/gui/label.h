@@ -8,11 +8,12 @@ namespace hista {
     namespace gui {
         class label : public component {
         public:
-            explicit label(const std::string& text);
-            void handle_event(const sf::Event& event) override;
+            explicit label(const std::string &text);
+
+            void handle_event(const sf::Event &event) override;
 
         private:
-            void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+            void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
         private:
             sf::Text _text;

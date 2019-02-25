@@ -14,9 +14,10 @@ namespace hista {
     namespace entity {
         class entity : public sf::Drawable, public sf::Transformable, public sf::NonCopyable {
         public:
-            explicit entity(const sf::Vector2f position) : position { position } {}
+            explicit entity(const sf::Vector2f position) : position{position} {}
 
             virtual void update(sf::Time dt) = 0;
+
         protected:
             sf::Vector2f position;
         };

@@ -5,7 +5,7 @@ namespace hista {
     namespace player {
         class context {
         public:
-            context(unsigned int x, unsigned int y) : _x { x }, _y { y } {
+            context(unsigned int x, unsigned int y) : _x{x}, _y{y} {
             }
 
         public:

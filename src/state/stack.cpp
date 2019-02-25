@@ -49,7 +49,7 @@ namespace hista {
             return _stack.empty();
         }
 
-        base* stack::create_state(ID state_id) {
+        base *stack::create_state(ID state_id) {
             return _factories[state_id].get();
         }
     }

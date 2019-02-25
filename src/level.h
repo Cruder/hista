@@ -8,13 +8,14 @@ namespace hista {
     public:
         level(std::unique_ptr<tilemap> tilemap, std::unique_ptr<tileset> tileset);
 
-        void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+        void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
+
     private:
         std::unique_ptr<tilemap> _tilemap;
         std::unique_ptr<tileset> _tileset;
     };
 
-    std::unique_ptr<level> make_level(const std::string& filename);
+    std::unique_ptr<level> make_level(const std::string &filename);
 }
 
 #endif //HISTA_PROJECT_LEVEL_H

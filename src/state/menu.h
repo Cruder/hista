@@ -11,12 +11,14 @@ namespace hista {
             menu(stack &stack, context ctx);
 
             void draw() override;
+
             bool update(sf::Time) override;
 
             bool handle_event(const sf::Event &event) override;
 
         private:
             void update_option_text();
+
         private:
             std::vector<sf::Text> _options;
             unsigned int _options_index;

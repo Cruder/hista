@@ -30,6 +30,7 @@ namespace hista {
             void draw(sf::RenderTarget &target, sf::RenderStates states) const override;
 
             void move(sf::Vector2f delta);
+
             void startMovement(direction direction1);
 
         private:
@@ -40,6 +41,7 @@ namespace hista {
             float _elapsed_time;
             std::unique_ptr<animation> _animation;
         };
+
         std::unique_ptr<mario> make_mario(const std::string &filename, sf::Vector2f position);
     }
 }

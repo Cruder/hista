@@ -14,17 +14,21 @@ namespace hista {
     public:
         struct item {
             explicit item(unsigned int x, unsigned int y) : _x(x), _y(y) {}
+
             unsigned int _x;
             unsigned int _y;
         };
 
     public:
-        tileset(std::unique_ptr<resource::texture::holder>&& holder,
-                std::unique_ptr<std::map<std::string, std::shared_ptr<item>>>&& items,
+        tileset(std::unique_ptr<resource::texture::holder> &&holder,
+                std::unique_ptr<std::map<std::string, std::shared_ptr<item>>> &&items,
                 unsigned int size_x, unsigned int size_y,
                 double coef_x, double coef_y);
-        const sf::Texture& resource() const;
-        sf::Sprite& get(const std::string& identifier);
+
+        const sf::Texture &resource() const;
+
+        sf::Sprite &get(const std::string &identifier);
+
     private:
         unsigned int tile_size_x;
         unsigned int tile_size_y;
@@ -37,7 +41,7 @@ namespace hista {
         sf::Sprite sprite;
     };
 
-    std::unique_ptr<tileset> make_tileset(const std::string& filename, unsigned int x, unsigned int y);
+    std::unique_ptr<tileset> make_tileset(const std::string &filename, unsigned int x, unsigned int y);
 }
 
 

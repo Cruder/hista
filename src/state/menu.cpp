@@ -13,7 +13,7 @@ namespace hista {
                 {1, menu::options::Exit}
         };
 
-        menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0}, font {} {
+        menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0}, font{} {
 //            sf::Texture &texture = context.textures->get(Textures::TitleScreen);
 //            sf::Font &font = context.fonts->get(Fonts::Main);
 
