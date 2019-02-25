@@ -31,13 +31,13 @@ namespace hista {
 
             void move(sf::Vector2f delta);
 
-            void startMovement(direction direction1);
+            void start_movement(direction direction1);
 
         private:
             void reset();
 
         private:
-            direction _currentAction;
+            direction _current_action;
             float _elapsed_time;
             std::unique_ptr<animation> _animation;
         };

@@ -10,7 +10,7 @@ namespace hista {
 
             if (_elapsed_time > 0) {
                 _elapsed_time -= dt.asMilliseconds();
-                switch (_currentAction) {
+                switch (_current_action) {
                     case direction::LEFT:
                         position.x += -1 * dt.asSeconds() * 15;
                         break;
@@ -32,19 +32,19 @@ namespace hista {
         }
 
         void mario::reset() {
-            if (_currentAction == direction::LEFT) {
-                _currentAction = direction::IDLE_LEFT;
+            if (_current_action == direction::LEFT) {
+                _current_action = direction::IDLE_LEFT;
                 _animation->set_animation("idle_left");
-            } else if (_currentAction == direction::RIGHT) {
-                _currentAction = direction::IDLE_RIGHT;
+            } else if (_current_action == direction::RIGHT) {
+                _current_action = direction::IDLE_RIGHT;
                 _animation->set_animation("idle_right");
             }
         }
 
-        void mario::startMovement(mario::direction direction1) {
+        void mario::start_movement(mario::direction direction1) {
             std::string newAnimation;
-            _currentAction = direction1;
-            switch (_currentAction) {
+            _current_action = direction1;
+            switch (_current_action) {
                 case direction::LEFT:
                     newAnimation = "move_left";
                     break;

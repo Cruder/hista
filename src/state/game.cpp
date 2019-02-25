@@ -35,7 +35,7 @@ namespace hista {
             }
 
             for (const auto &action : binding.actions()) {
-                _mario->startMovement(action);
+                _mario->start_movement(action);
             }
 
             return false;
