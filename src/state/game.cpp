@@ -1,18 +1,13 @@
-//
-// Created by necros on 24/02/19.
-//
-
 #include "game.h"
 #include "../key_binding.h"
-#include <iostream>
 
 namespace hista {
     namespace state {
 
-        game::game(stack &stack, context ctx) : base(stack, ctx),
+        game::game(stack &stack, context ctx, std::unique_ptr<level>&& level) : base(stack, ctx),
                                                 _mario{entity::make_mario("../assets/meta/mario/mario.hista",
                                                                           sf::Vector2f(400, 400))},
-                                                _level{make_level("../assets/meta/level/1.hista")} {
+                                                _level{std::move(level)} {
         }
 
         void game::draw() {
@@ -62,8 +57,6 @@ namespace hista {
                 sf::Vector2i position = sf::Mouse::getPosition();
                 sf::Vector2f convert = sf::Vector2f(position.x - 1000, position.y);
 
-                std::cerr << "Add slime at " << convert.x << " - " << convert.y << std::endl;
-                std::cerr << "Should be " << position.x << " - " << position.y << std::endl;
                 _slimes.push_back(entity::make_enemy("../assets/meta/enemy/slime.hista", convert));
             }
 

@@ -68,7 +68,7 @@ namespace hista {
 
                 if (mapper[_options_index] == options::Play) {
                     request_stack_pop();
-                    request_stack_push(ID::Game);
+                    request_stack_push(ID::Game1);
                 } else if (mapper[_options_index] == options::Exit) {
                     request_stack_pop();
                 }

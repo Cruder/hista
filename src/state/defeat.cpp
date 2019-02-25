@@ -1,7 +1,3 @@
-//
-// Created by necros on 25/02/19.
-//
-
 #include "defeat.h"
 
 namespace hista {
