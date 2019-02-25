@@ -1,15 +1,20 @@
-#ifndef STATE_MENU_H
-#define STATE_MENU_H
+//
+// Created by necros on 25/02/19.
+//
 
-#include "base.h"
+#ifndef HISTA_PROJECT_DEFEAT_H
+#define HISTA_PROJECT_DEFEAT_H
+
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+#include "base.h"
 
 namespace hista {
     namespace state {
-        class menu : public base {
+        class defeat : public base {
         public:
-            menu(stack &stack, context ctx);
+            defeat(stack &stack, context ctx);
 
             void draw() override;
 
@@ -18,22 +23,14 @@ namespace hista {
             bool handle_event(const sf::Event &event) override;
 
         private:
-            void update_option_text();
-
-        private:
-            std::vector<sf::Text> _options;
-            unsigned int _options_index;
             sf::Font font;
+            sf::Text message;
 
             sf::Texture background;
             sf::Sprite background_displayer;
-        public:
-            enum class options {
-                Play,
-                Exit
-            };
         };
     }
 }
 
-#endif // STATE_MENU_H
+
+#endif //HISTA_PROJECT_DEFEAT_H

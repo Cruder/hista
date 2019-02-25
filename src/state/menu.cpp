@@ -13,24 +13,26 @@ namespace hista {
                 {1, menu::options::Exit}
         };
 
-        menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0}, font{} {
-//            sf::Texture &texture = context.textures->get(Textures::TitleScreen);
-//            sf::Font &font = context.fonts->get(Fonts::Main);
+        menu::menu(stack &stack, context ctx) : base(stack, ctx), _options{}, _options_index{0}, font{}, background{},
+                                                background_displayer{} {
+            background.loadFromFile("../assets/images/back.png");
+            background_displayer.setTexture(background);
+            background_displayer.scale(1.7, 1.7);
+            background_displayer.setPosition((_ctx.window->getView().getSize() -
+                                              sf::Vector2(background_displayer.getGlobalBounds().width,
+                                                          background_displayer.getGlobalBounds().height)) / 2.0f);
 
-//            mBackgroundSprite.setTexture(texture);
             font.loadFromFile("../assets/fonts/joystix.ttf");
 
             sf::Text play_option;
             play_option.setFont(font);
             play_option.setString("Play");
-            // centerOrigin(play_option);
-            play_option.setPosition(_ctx.window->getView().getSize() / 2.f);
+            play_option.setPosition((_ctx.window->getView().getSize() - sf::Vector2(play_option.getGlobalBounds().width, play_option.getGlobalBounds().height)) / 2.f);
             _options.push_back(play_option);
 
             sf::Text exit_option;
             exit_option.setFont(font);
             exit_option.setString("Exit");
-            // centerOrigin(exitOption);
             exit_option.setPosition(play_option.getPosition() + sf::Vector2f(0.f, 30.f));
             _options.push_back(exit_option);
 
@@ -42,6 +44,7 @@ namespace hista {
 
             window.setView(window.getDefaultView());
 
+            window.draw(background_displayer);
             for (const sf::Text &text : _options) {
                 window.draw(text);
             }
